@@ -1,0 +1,103 @@
+package FinalAssignment;
+
+import java.util.Collections;
+
+import java.util.Map;
+import java.util.TreeSet;
+
+
+
+public class Main {
+	
+	private class Pair<K,V> {
+		K key;
+		V value;
+
+		Pair(K key, V value) {
+			this.key = key;
+			this.value = value;
+		}
+
+	}
+
+	public static void main(String[] args) {
+		MiscUtils m=new MiscUtils();
+		HashTableDictionary<Integer,Integer> h=new HashTableDictionary<Integer,Integer>(1000);
+		int array = new int[]{2, 3, 4,9,1,0,6,5,5,1 };
+	      array= m.nextSmallerNumber(array);
+	       for(int i:array)
+	    	   System.out.println(i);
+	 
+	    
+		TreeDictionary<Integer,Integer> t=new TreeDictionary<Integer,Integer>();
+
+        int[] arr = new int []{112,112,44};
+	        for(int i=0; i<arr.length; i++){
+	            //System.out.println(i);
+	            System.out.println(t.set(arr[i],i));
+	        }
+	        for(int i=0; i<arr.length; i++){
+	            //System.out.println(i);
+	           System.out.println(t.get(arr[i]));
+	        }
+	       m.traverse(t.getRoot());
+	        
+	       /* for(int i=0; i<arr.length; i++){
+	            //System.out.println(i);
+	            System.out.println(t.remove(arr[i]));
+	        }
+	        */
+	        
+	        
+		
+		
+		
+
+		
+		//System.out.println("hi".compareTo("asmaa"));
+		
+		//System.out.println(m.right.element);
+		//System.out.println(t.set("asmaa",4));
+		//System.out.println(t.get("asmaa"));
+		
+		
+		
+		
+		// TODO Auto-generated method stub
+		/*MiscUtils m=new MiscUtils();
+		BinaryTreeNode root=new BinaryTreeNode(4);
+		BinaryTreeNode Node1=new BinaryTreeNode(2);
+		BinaryTreeNode Node2=new BinaryTreeNode(5);
+		BinaryTreeNode Node3=new BinaryTreeNode(1);
+		BinaryTreeNode Node4=new BinaryTreeNode(3);
+		
+		root.left=Node1;
+		root.right=Node2;
+		Node1.left=Node3;
+		Node1.right=Node4;
+		 System.out.println(m.isValidBST(root));
+		 int a[]= {1,2,3,4,5,6,7};
+		 a=m.nextSmallerNumber(a);
+		 for(int i:a)
+		 {
+			 System.out.println(i);
+		 }*/
+	   
+	   
+		/*BinaryTreeNode root=null;
+		root=m.insert(root,10);
+		root=m.insert(root,5);
+		root=m.insert(root,16);
+		root=m.insert(root,4);
+		root=m.insert(root,7);
+		root=m.insert(root,1);
+		
+		 System.out.println(m.isValidBST(root));*/
+		
+		//m.traverse(root);
+		//System.out.println(root.right.left.element);
+		
+
+	}
+
+}

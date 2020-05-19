@@ -1,0 +1,75 @@
+package unitTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import FinalAssignment.HashTableDictionary;
+import FinalAssignment.TreeDictionary;
+
+class testTreeDictionary {
+
+	 @Test
+	    void test1() {
+	        TreeDictionary<Integer,Integer> dic = new TreeDictionary<Integer, Integer>();
+
+	        int[] arr = new int []{112,12,188, 1513, 931 ,141, 346 ,553 ,513 ,88 ,301 , 189};
+	        for(int i=0; i<arr.length; i++){
+	            //System.out.println(i);
+	            dic.set(arr[i],i);
+	        }
+	       
+	        for(int i=0; i<arr.length; i++){
+	        	dic.get(arr[i]);
+	            assertEquals(i, dic.get(arr[i]) );
+	        }
+	    }
+/*
+	    @Test
+	    void test2() {
+	    	TreeDictionary<String,Integer> dic = new TreeDictionary<String, Integer>();
+
+	        String[] arr = new String []{"meow", "bye","cat", "jnfj","iion","yes","okh",
+	                "sad" ,"sa", "spanish", "lokt","hi" ,"cool omega", "c", "abbb" };
+
+	        for(int i=0; i<arr.length; i++){
+	            dic.set(arr[i],i);
+	        }
+	       
+	        for(int i=0; i<arr.length; i++){
+	            assertEquals(i, dic.get(arr[i]) );
+	        }
+	        
+	        for(int i=0; i<arr.length; i++){
+	            assertEquals(i, dic.remove(arr[i]) );
+	        }
+
+	        
+	        ///[-------------------------------------------]
+	        for(int i=0; i<arr.length; i+=2){
+	            dic.set(arr[i], i*14);
+	        }
+
+	        for(int i=0; i<arr.length; i+=2){
+	            assertEquals(i*14, dic.get(arr[i]) );
+	        }
+	        // -----------------------------------------------
+	        // remove even elments
+	        
+	       
+            
+	        for(int i=0; i<arr.length; i+=2){
+	            assertEquals(null, dic.get(arr[i]) );
+	        }
+	        // ---------------------------------------------
+	        // remove odd elements
+	        for(int i=1; i<arr.length; i+=2){
+	            assertEquals(i, dic.remove(arr[i]) );
+	        }
+
+	        assertEquals(dic.isEmpty(), true);
+	    }
+	    
+	*/    
+	    
+}

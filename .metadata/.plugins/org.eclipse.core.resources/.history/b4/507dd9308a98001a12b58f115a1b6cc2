@@ -1,0 +1,47 @@
+package FinalAssignment;
+
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeSet;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MiscUtils m=new MiscUtils();
+		BinaryTreeNode root=new BinaryTreeNode(4);
+		BinaryTreeNode Node1=new BinaryTreeNode(2);
+		BinaryTreeNode Node2=new BinaryTreeNode(5);
+		BinaryTreeNode Node3=new BinaryTreeNode(1);
+		BinaryTreeNode Node4=new BinaryTreeNode(3);
+		
+		root.left=Node1;
+		root.right=Node2;
+		Node1.left=Node3;
+		Node1.right=Node4;
+		 System.out.println(m.isValidBST(root));
+		 int a[]= {10,9,2,7,6,1,2};
+		 a=m.nextSmallerNumber(a);
+		 for(int i:a)
+		 {
+			 System.out.println(i);
+		 }
+	   
+	   
+		/*BinaryTreeNode root=null;
+		root=m.insert(root,10);
+		root=m.insert(root,5);
+		root=m.insert(root,16);
+		root=m.insert(root,4);
+		root=m.insert(root,7);
+		root=m.insert(root,1);
+		
+		 System.out.println(m.isValidBST(root));*/
+		
+		//m.traverse(root);
+		//System.out.println(root.right.left.element);
+		
+
+	}
+
+}

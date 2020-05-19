@@ -1,0 +1,127 @@
+	package FinalAssignment;
+
+import dataStructures.SinglyLinkedList;
+import interfaces.IDictionary;
+
+public class HashTableDictionary<K, V> implements IDictionary<Object, Object> {
+
+	private class hashNode {
+		K key;
+		V value;
+
+		@SuppressWarnings("unchecked")
+		hashNode(Object key, Object value) {
+			this.key = (K) key;
+			this.value = (V) value;
+		}
+
+	}
+
+	public boolean keyExists(hashNode Node, K key) {
+
+		return (Node.key.equals(key)) ? true : false;
+	}
+
+	private SinglyLinkedList buckets[];
+	private int currentSize = 0;
+	private int initialSize;
+
+	HashTableDictionary(int initialSize) {
+		if (initialSize <= 0)
+			throw new RuntimeException("Invalid Size");
+		this.initialSize = initialSize;
+		buckets = new SinglyLinkedList[initialSize];
+
+	}
+
+	public int size() {
+		return this.currentSize;
+
+	}
+
+	private int getHashIndex(K key) {
+		int hashCode = key.hashCode();
+		return hashCode % initialSize;
+
+	}
+	
+	public hashNode getHashNode(SinglyLinkedList list,K key)
+	{ 
+		for(int i=0;i<list.size;i++)
+		{
+			@SuppressWarnings("unchecked")
+			hashNode Node =  (HashTableDictionary<K, V>.hashNode) list.get(i);
+			if (keyExists(Node, (K) key)) return Node;
+		}
+		return null;
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object get(Object key) {
+		// TODO Auto-generated method stub
+		if (key == null)
+			throw new RuntimeException("Invalid");
+		int bucketIndex = getHashIndex((K) key);
+		SinglyLinkedList list = this.buckets[bucketIndex];
+		if(list!=null) { 
+		
+			hashNode Node = getHashNode(list,(K) key);
+			
+				return Node!=null?Node.value:null;
+		
+		}
+
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object set(Object key, Object value) {
+		// TODO Auto-generated method stub
+		if (key == null || value == null)
+			throw new RuntimeException("Invalid");
+ 
+		V retrieved=(V) get(key);
+		int bucketIndex = getHashIndex((K) key);
+		SinglyLinkedList list = this.buckets[bucketIndex];
+		if(retrieved==null)
+		{
+		hashNode Node = new hashNode(key, value);
+		if (list == null) {
+			// Make a new list
+			this.buckets[bucketIndex] = new SinglyLinkedList();
+			this.buckets[bucketIndex].add(Node);
+			this.currentSize++;
+		} else {
+
+			this.buckets[bucketIndex].add(Node);
+			this.currentSize++;
+
+		}
+		}
+   
+       else {
+    	   hashNode temp=(HashTableDictionary<K, V>.hashNode) list.get();
+    	   temp.value=(V) value;
+    	   return value;
+    	   
+       }
+		
+		return null;
+	}
+
+	@Override
+	public Object remove(Object key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

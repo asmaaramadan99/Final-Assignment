@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MiscUtilsTest (1)" project="FinalAssignment" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="unitTests.MiscUtilsTest" time="0.021" displayname="MiscUtilsTest" uniqueid="[engine:junit-jupiter]/[class:unitTests.MiscUtilsTest]">
+    <testcase name="sumRange" classname="unitTests.MiscUtilsTest" time="0.008" displayname="sumRange()" uniqueid="[engine:junit-jupiter]/[class:unitTests.MiscUtilsTest]/[method:sumRange()]"/>
+    <testcase name="insert" classname="unitTests.MiscUtilsTest" time="0.002" displayname="insert()" uniqueid="[engine:junit-jupiter]/[class:unitTests.MiscUtilsTest]/[method:insert()]"/>
+    <testcase name="nextSmallerNumber" classname="unitTests.MiscUtilsTest" time="0.003" displayname="nextSmallerNumber()" uniqueid="[engine:junit-jupiter]/[class:unitTests.MiscUtilsTest]/[method:nextSmallerNumber()]"/>
+    <testcase name="main" classname="unitTests.MiscUtilsTest" time="0.001" displayname="main()" uniqueid="[engine:junit-jupiter]/[class:unitTests.MiscUtilsTest]/[method:main()]"/>
+    <testcase name="isValidBST" classname="unitTests.MiscUtilsTest" time="0.007" displayname="isValidBST()" uniqueid="[engine:junit-jupiter]/[class:unitTests.MiscUtilsTest]/[method:isValidBST()]"/>
+  </testsuite>
+</testrun>

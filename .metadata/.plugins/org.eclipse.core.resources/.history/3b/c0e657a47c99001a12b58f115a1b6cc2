@@ -1,0 +1,174 @@
+package FinalAssignment;
+
+import java.util.NoSuchElementException;
+
+import interfaces.IDictionary;
+
+public class TreeDictionary<K extends Comparable<K>, V> implements IDictionary<K, V> {
+	private BinaryTreeNode root;
+	private V deletedValue;
+	private V v;
+
+	private class Pair {
+		K key;
+		V value;
+
+		Pair(K key, V value) {
+			this.key = key;
+			this.value = value;
+		}
+
+	}
+
+	public V find(K key, BinaryTreeNode root) {
+		if (root == null)
+			return null;
+		find(key, root.left);
+		find(key, root.right);
+		@SuppressWarnings("unchecked")
+		Pair p = (TreeDictionary<K, V>.Pair) root.element;
+		if (p.key.compareTo(key) == 0) {
+			 v=p.value;
+			
+		}
+		
+		return null;
+
+	}
+
+	public BinaryTreeNode getNode(K key, BinaryTreeNode root) {
+		if (root == null)
+			return null;
+		getNode(key, root.left);
+		@SuppressWarnings("unchecked")
+		Pair p = (TreeDictionary<K, V>.Pair) root.element;
+		if (p.key.compareTo(key) == 0) {
+			return root;
+		}
+		getNode(key, root.right);
+		return null;
+
+	}
+
+	@Override
+	public V get(K key) {
+		// TODO Auto-generated method stub
+		V value = find(key, this.root);
+		if (value == null)
+			return null;
+
+		return v;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Pair getMin(BinaryTreeNode root) {
+		if (root.left == null)
+			return ((Pair) root.element);
+
+		return getMin(root.left);
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public BinaryTreeNode delete(BinaryTreeNode root, K key) {
+		if (root == null)
+			return root;
+		@SuppressWarnings("unchecked")
+		Pair p = (TreeDictionary<K, V>.Pair) root.element;
+		if (key.compareTo(p.key) < 0)
+			root.left = delete(root.left, key);
+		else if (key.compareTo(p.key) > 0)
+			root.right = delete(root.right, key);
+		else {
+			if (root.right == null && root.left == null) {
+				deletedValue = p.value;
+				root = null;
+
+			} else if (root.left == null) {
+				deletedValue = p.value;
+				BinaryTreeNode temp = root;
+				root = root.right;
+				temp = null;
+
+			} else if (root.right == null) {
+				deletedValue = p.value;
+				BinaryTreeNode temp = root;
+				root = root.left;
+				temp = null;
+
+			} else {
+				deletedValue = p.value;
+				Pair temp = getMin(root.right);
+				((Pair) root.element).key = temp.key;
+				((Pair) root.element).value = temp.value;
+				root.right = delete(root.right, temp.key);
+			}
+		}
+
+		return root;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public BinaryTreeNode insert(BinaryTreeNode root, Pair p) {
+
+		if (root == null) {
+			root = new BinaryTreeNode(p);
+			return root;
+
+		} else if (p.key.compareTo(((Pair) root.element).key) < 0) {
+			root.left = insert(root.left, p);
+		} else if (p.key.compareTo(((Pair) root.element).key) > 0) {
+			root.right = insert(root.right, p);
+		}
+		return root;
+
+	}
+
+	@Override
+	public V set(K key, V value) {
+		// TODO Auto-generated method stub
+
+		if (key == null || value == null)
+			throw new NoSuchElementException();
+		V element = get(key);
+		if (element == null) {
+			Pair p = new Pair(key, value);
+			this.root = insert(this.root, p);
+
+		} else {
+			BinaryTreeNode temp = getNode(key, root);
+			@SuppressWarnings("unchecked")
+			Pair p = (TreeDictionary<K, V>.Pair) temp.element;
+			p.value = value;
+			return value;
+		}
+
+		return null;
+	}
+
+	public BinaryTreeNode getRoot() {
+		return root;
+	}
+
+	public void setRoot(BinaryTreeNode root) {
+		this.root = root;
+	}
+
+	@Override
+	public V remove(K key) {
+		// TODO Auto-generated method stub
+		this.root = delete(this.root, key);
+		if (deletedValue != null) {
+			return deletedValue;
+		} else
+			return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return this.root == null ? true : false;
+	}
+
+}

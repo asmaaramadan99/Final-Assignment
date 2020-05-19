@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HashTableDictionaryTest" project="FinalAssignment" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="FinalAssignment.HashTableDictionaryTest" time="0.018" displayname="HashTableDictionaryTest" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.HashTableDictionaryTest]">
+    <testcase name="testGet" classname="FinalAssignment.HashTableDictionaryTest" time="0.01" displayname="testGet()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.HashTableDictionaryTest]/[method:testGet()]"/>
+    <testcase name="testSet" classname="FinalAssignment.HashTableDictionaryTest" time="0.001" displayname="testSet()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.HashTableDictionaryTest]/[method:testSet()]"/>
+    <testcase name="testIsEmpty" classname="FinalAssignment.HashTableDictionaryTest" time="0.002" displayname="testIsEmpty()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.HashTableDictionaryTest]/[method:testIsEmpty()]"/>
+    <testcase name="testRemove" classname="FinalAssignment.HashTableDictionaryTest" time="0.005" displayname="testRemove()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.HashTableDictionaryTest]/[method:testRemove()]"/>
+  </testsuite>
+</testrun>

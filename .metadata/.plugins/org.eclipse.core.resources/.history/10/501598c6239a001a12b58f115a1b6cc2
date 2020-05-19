@@ -1,0 +1,114 @@
+package FinalAssignment;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import FinalAssignment.BinaryTreeNode;
+import FinalAssignment.MiscUtils;
+
+class MiscUtilsTest {
+	MiscUtils obj=new MiscUtils();
+
+    BinaryTreeNode one;
+    BinaryTreeNode two;
+    BinaryTreeNode three = new BinaryTreeNode(3);
+    BinaryTreeNode four = new BinaryTreeNode(4);
+    BinaryTreeNode five = new BinaryTreeNode(5);
+    BinaryTreeNode six = new BinaryTreeNode(6);
+    BinaryTreeNode seven = new BinaryTreeNode(7);
+    BinaryTreeNode eight = new BinaryTreeNode(8);
+
+
+    @Test
+    void main() {
+    }
+
+    @Test
+    void insert() {
+    	   BinaryTreeNode root = null;
+    	   root=obj.insert(root,9);
+    	   root=obj.insert(root,12);
+    	   root=obj.insert(root,4);
+    	   root=obj.insert(root,33);
+    	   root=obj.insert(root,2);
+    	   root=obj.insert(root,1);
+    	   root=obj.insert(root,8);
+    	   root=obj.insert(root,34);
+    	   one=root;
+    	   obj.traverse(root);
+    	   System.out.println();
+    	   System.out.println();
+    	   System.out.println();
+    	   root=null;
+    	   
+    	   root=obj.insert(root,9);
+    	   root=obj.insert(root,12);
+    	   root=obj.insert(root,4);
+    	   root=obj.insert(root,33);
+    	   root=obj.insert(root,2);
+    	   root=obj.insert(root,2);
+    	   root=obj.insert(root,8);
+    	   root=obj.insert(root,8);
+    	   two=root;
+    	   obj.traverse(root);
+      
+    }
+
+    @Test
+    void sumRange() {
+    	 BinaryTreeNode root = null;
+  	   root=obj.insert(root,9);
+  	   root=obj.insert(root,12);
+  	   root=obj.insert(root,4);
+  	   root=obj.insert(root,33);
+  	   root=obj.insert(root,2);
+  	   root=obj.insert(root,1);
+  	   root=obj.insert(root,8);
+  	   root=obj.insert(root,34);
+    assertEquals(35,obj.sumRange(root,2,12));
+    assertEquals(79,obj.sumRange(root,12,36));
+    assertEquals(0,obj.sumRange(root,0,0));
+    assertEquals(36,obj.sumRange(root,-5,12));
+       root=null;
+      root=obj.insert(root,9);
+	   root=obj.insert(root,12);
+	   root=obj.insert(root,4);
+	   root=obj.insert(root,-6);
+	   root=obj.insert(root,3);
+	   root=obj.insert(root,-2);
+	   root=obj.insert(root,5);
+	   root=obj.insert(root,8);
+	   assertEquals(18,obj.sumRange(root,-2,8));
+	    /*assertEquals(79,obj.sumRange(root,12,36));
+	    assertEquals(0,obj.sumRange(root,0,0));
+	    assertEquals(36,obj.sumRange(root,-5,12));*/
+	  
+    	
+     
+        
+    }
+
+    @Test
+    void isValidBST() {
+     
+  
+    }
+
+    @Test
+    void nextSmallerNumber() {
+        int[] arr = new int[]{ 10, 9, 2, 7, 6, 1, 2 };
+        
+        int[] ans = new int[]{1,2,5,4,5,-1,-1};
+        assertArrayEquals(ans, obj.nextSmallerNumber(arr));
+
+        arr = new int[]{1, 2, 3 };
+        ans = new int[]{-1, -1, -1};
+        assertArrayEquals(ans, obj.nextSmallerNumber(arr));
+
+        arr = new int[]{1, 2, 3 ,1};
+        ans = new int[]{-1,3, 3, -1};
+        assertArrayEquals(ans, obj.nextSmallerNumber(arr));
+    }
+}
+

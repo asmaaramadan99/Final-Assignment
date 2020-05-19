@@ -1,0 +1,125 @@
+package FinalAssignment;
+
+import java.util.NoSuchElementException;
+
+import dataStructures.SinglyLinkedList;
+import interfaces.IDictionary;
+
+public class TreeDictionary<K extends Comparable<K>,V> implements IDictionary<K,V> {
+	BinaryTreeNode root;
+	private int currentSize=0;
+	
+	
+
+	private class Pair {
+		K key;
+		V value;
+
+		
+		Pair(K key, V value) {
+			this.key =  key;
+			this.value =  value;
+		}
+
+	}
+   
+	
+
+	
+	public V find(K key,BinaryTreeNode root)
+	{
+		if(root==null)
+		 return null;
+		find(key,root.left);
+		@SuppressWarnings("unchecked")
+		Pair p=(TreeDictionary<K, V>.Pair)root.element;
+		if(p.key.compareTo(key)==0)
+		{
+			return p.value;
+		}
+		find(key,root.right);
+	    return null;	 
+		
+	}
+	
+	public BinaryTreeNode getNode(K key,BinaryTreeNode root)
+	{
+		if(root==null)
+		 return null;
+		find(key,root.left);
+		@SuppressWarnings("unchecked")
+		Pair p=(TreeDictionary<K, V>.Pair) root.element;
+		if(p.key.compareTo(key)==1)
+		{
+			return root;
+		}
+		find(key,root.right);
+	    return null;	 
+		
+	}
+
+	@Override
+	public V get(K key) {
+		// TODO Auto-generated method stub
+        V value=find(key,this.root);
+        if(value==null)
+        	return null;
+		
+		return value;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public BinaryTreeNode insert(BinaryTreeNode root,Pair p)
+	{
+
+		if (root == null) {
+			root = new BinaryTreeNode(p);
+			return root;
+
+		} else if (p.key.compareTo(((Pair) root.element).key)<0) {
+			root.left = insert(root.left,p);
+		} else if (p.key.compareTo(((Pair) root.element).key)>0) {
+			root.right = insert(root.right,p);
+		}
+		return root;
+		
+	}
+
+	@Override
+	public V set(K key, V value) {
+		// TODO Auto-generated method stub
+		
+		if(key==null || value==null) throw new NoSuchElementException();
+		V element=get(key);
+		if(element==null)
+		{
+			Pair p=new Pair(key,value);
+			this.root=insert(this.root,p);
+		}
+		else
+		{
+			BinaryTreeNode temp=getNode(key,root);
+			Pair p=(TreeDictionary<K, V>.Pair) temp.element;
+			p.value=value;
+			return element;
+		}
+		
+		
+		return null;
+	}
+
+	@Override
+	public V remove(K key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
+}

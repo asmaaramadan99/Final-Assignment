@@ -1,0 +1,107 @@
+package FinalAssignment;
+
+import dataStructures.Stack;
+import interfaces.IMiscUtils;
+
+public class MiscUtils implements IMiscUtils {
+	
+	
+	public void traverse(BinaryTreeNode root)
+	{
+		if(root==null)
+	     	return;
+		traverse(root.left);
+		System.out.println(root.element);
+		traverse(root.right);	
+	}
+	
+	
+
+	@Override
+	public BinaryTreeNode insert(BinaryTreeNode root, int element) {
+		// TODO Auto-generated method stub
+		
+		if(root==null)
+		{
+		    root=new BinaryTreeNode(element);
+		    
+		}
+		else if(element<(int)root.element)
+		{
+			root.left=insert(root.left,element);
+		}
+		else if(element>(int)root.element)
+		{
+			root.right=insert(root.right,element);
+		}
+		return root;
+	}
+	
+	public BinaryTreeNode search(BinaryTreeNode root,int key)
+	{
+		if((int)root.element==key)
+			return root;
+		else if(key<(int)root.element)
+			return search(root.left,key);
+		else if(key>(int)root.element)
+			return search(root.right,key);
+			return null;
+	
+		
+	}
+
+	@Override
+	public int sumRange(BinaryTreeNode root, int low, int high) {
+		// TODO Auto-generated method stub
+		if(root==null) return 0;
+		if((int)root.element<low)
+			return sumRange(root.right,low,high);
+		if((int)root.element>high)
+			return sumRange(root.left,low,high);
+	
+		return (int)root.element+sumRange(root.left,low,high)+sumRange(root.right,low,high);
+		
+		
+	}
+
+	@Override
+	public boolean isValidBST(BinaryTreeNode root) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int[] nextSmallerNumber(int[] array) {
+		// TODO Auto-generated method stub
+		Stack stack=new Stack();
+		int newArray[]=new int [array.length];
+		int j=0;
+		int i=0;
+		boolean found=false;
+		stack.push(0);
+		while(!stack.isEmpty())
+		{  if(array[(int)stack.peek()+1]<array[(int)stack.peek()])
+			stack.push((int)stack.peek()+1);
+		else
+		{
+			found=true;
+			break;
+		}
+		}
+		j=(int)stack.pop();
+		while(stack.size()!=1)
+		{
+			i=(int)stack.pop();
+		}
+		if(found)
+			newArray[i]=j;
+		else
+			newArray[i]=-1;
+		
+		
+		
+		
+		return newArray;
+	}
+
+}

@@ -1,0 +1,26 @@
+package FinalAssignment;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MiscUtils m=new MiscUtils();
+		BinaryTreeNode root=null;
+		root=m.insert(root,6);
+		root=m.insert(root,3);
+		root=m.insert(root,12);
+		root=m.insert(root,2);
+		root=m.insert(root,5);
+		root=m.insert(root,4);
+		root=m.insert(root,10);
+		root=m.insert(root,13);
+		root=m.insert(root,4);
+		root=m.insert(root,20);
+		
+		
+		m.traverse(root);
+		
+
+	}
+
+}

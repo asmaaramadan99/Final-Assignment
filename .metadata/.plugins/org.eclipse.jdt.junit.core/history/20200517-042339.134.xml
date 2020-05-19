@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MiscUtilsTest" project="FinalAssignment" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="FinalAssignment.MiscUtilsTest" time="0.0" displayname="MiscUtilsTest" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.MiscUtilsTest]">
+    <testcase name="testInsert" classname="FinalAssignment.MiscUtilsTest" time="0.0" displayname="testInsert()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.MiscUtilsTest]/[method:testInsert()]"/>
+  </testsuite>
+</testrun>

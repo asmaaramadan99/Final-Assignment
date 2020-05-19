@@ -1,0 +1,55 @@
+package FinalAssignment;
+
+public class MiscUtils implements IMiscUtils {
+	
+	
+	public void traverse(BinaryTreeNode root)
+	{
+		if(root==null)
+	     	return;
+		traverse(root.left);
+		System.out.println(root.element);
+		traverse(root.right);	
+	}
+	
+	
+
+	@Override
+	public BinaryTreeNode insert(BinaryTreeNode root, int element) {
+		// TODO Auto-generated method stub
+		
+		if(root==null)
+		{
+		    root=new BinaryTreeNode(element);
+		    
+		}
+		else if(element<(int)root.element)
+		{
+			root.left=insert(root.left,element);
+		}
+		else if(element>(int)root.element)
+		{
+			root.right=insert(root.right,element);
+		}
+		return root;
+	}
+
+	@Override
+	public int sumRange(BinaryTreeNode root, int low, int high) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isValidBST(BinaryTreeNode root) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int[] nextSmallerNumber(int[] array) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,164 @@
+	package FinalAssignment;
+
+import dataStructures.SinglyLinkedList;
+import interfaces.IDictionary;
+
+public class HashTableDictionary<K, V> implements IDictionary<K, V> {
+ 
+	private class HashNode {
+		private K key;
+		private V value;
+		private HashNode next;
+ 
+		HashNode() {
+			setNext(null);
+		}
+ 
+		HashNode(K key, V value) {
+			this.setKey(key);
+			this.setValue(value);
+			setNext(null);
+		}
+ 
+		public K getKey() {
+			return key;
+		}
+ 
+		public void setKey(K key) {
+			this.key = key;
+		}
+ 
+		public V getValue() {
+			return value;
+		}
+ 
+		public void setValue(V value) {
+			this.value = value;
+		}
+ 
+		public HashNode getNext() {
+			return next;
+		}
+ 
+		public void setNext(HashNode next) {
+			this.next = next;
+		}
+	}
+ 
+	//int size;
+ 
+	SinglyLinkedList[] HashTable;
+	int tableSize;
+ 
+	public HashTableDictionary(int tableSize) {
+ 
+		this.tableSize = tableSize;
+		HashTable = new SinglyLinkedList[tableSize];
+ 
+		 /*for(int i=0; i<tableSize; i++) { 
+			 HashTable[i]=null; 
+			 }*/
+ 
+ 
+	}
+ 
+ 
+	@SuppressWarnings("unchecked")
+	@Override
+	public V get(K key) {
+ 
+		if (key == null)
+			throw new RuntimeException();
+ 
+		int index = Math.abs(key.hashCode() % tableSize);
+ 
+		HashNode node = new HashNode();
+		node = (HashNode) HashTable[index].get(index);
+ 
+		while (node != null) {
+ 
+			if (node.getKey().equals(key))
+				return node.getValue();
+ 
+			node = node.getNext();
+		}
+ 
+		return null;
+	}
+ 
+	@SuppressWarnings("unchecked")
+	@Override
+	public V set(K key, V value) {
+		int index = Math.abs(key.hashCode()) % tableSize;
+		HashNode node;
+		V temp;
+		if (this.HashTable[index] == null) {
+			this.HashTable[index]=new SinglyLinkedList();
+			node=new HashNode(key,value);
+			this.HashTable[index].add(node);
+		}
+		else 
+        {
+			node = new HashNode(key,value);
+			SinglyLinkedList l=this.HashTable[index];
+			l.show();
+			boolean found=false;
+ 
+           for(int i=0;i<l.size();i++)
+           {
+        	   HashNode n=(HashTableDictionary<K, V>.HashNode) l.get(i);
+        	   if(node.key.equals(n.key)){
+        		   found=true;
+	            temp=n.getValue();
+	            n.setValue(value);
+	            l.show();
+	              return temp;
+        	   }
+        	   if(!found)
+        		   l.add(node);
+	             
+           }
+ 
+         
+        }	
+        //size++;
+ 
+		return null;	
+	}
+ 
+	@SuppressWarnings("unchecked")
+	@Override
+	public V remove(K key) {
+ 
+		 if(key==null)
+	        	throw new RuntimeException();
+ 
+        int index = Math.abs(key.hashCode()) % tableSize;
+		HashNode node = new HashNode();
+		node = (HashNode) HashTable[index].get(index);
+        V temp;
+ 
+		if (HashTable[index] == null)
+			return null;
+ 
+		while(node !=null) {
+ 
+			if(node.getKey().equals(key)) {
+				temp=node.getValue();
+				node=node.getNext();
+				//size--;
+				return temp;
+			}
+			node=node.getNext();
+		}
+        return null;  
+	}
+
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+ 
+}

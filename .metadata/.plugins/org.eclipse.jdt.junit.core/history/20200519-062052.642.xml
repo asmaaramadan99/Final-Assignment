@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TreeDictionaryTest" project="FinalAssignment" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="FinalAssignment.TreeDictionaryTest" time="0.016" displayname="TreeDictionaryTest" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.TreeDictionaryTest]">
+    <testcase name="testGet" classname="FinalAssignment.TreeDictionaryTest" time="0.01" displayname="testGet()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.TreeDictionaryTest]/[method:testGet()]"/>
+    <testcase name="testSet" classname="FinalAssignment.TreeDictionaryTest" time="0.006" displayname="testSet()" uniqueid="[engine:junit-jupiter]/[class:FinalAssignment.TreeDictionaryTest]/[method:testSet()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,46 @@
+package FinalAssignment;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TreeDictionaryTest {
+    TreeDictionary<String,Integer>t=new TreeDictionary<String,Integer>();
+	 
+	@Test
+	void testSet() {
+		assertNull(t.set("asmaa",1234));
+		assertNull(t.set("hi",122));
+		assertNull(t.set("bye",56));
+		assertNull(t.set("ok",4));
+		assertNull(t.set("meow",12));
+		assertNull(t.set("tree",598));
+		assertEquals(1234,t.set("asmaa",666));
+		assertEquals(598,t.set("tree",36));
+		assertEquals(56,t.set("bye",6));
+		assertEquals(4,t.set("ok",621));
+		assertEquals(122,t.set("hi",23));
+		assertThrows(Exception.class, () -> {
+		    t.set(null,89);
+		  });
+		
+	}
+	/*
+	@Test
+	void testGet() {
+		fail("Not yet implemented");
+	}
+
+
+	@Test
+	void testRemove() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testIsEmpty() {
+		fail("Not yet implemented");
+	}
+	*/
+
+}

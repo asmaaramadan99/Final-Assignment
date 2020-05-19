@@ -1,0 +1,29 @@
+package FinalAssignment;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TreeDictionaryTest {
+
+	@Test
+	void testGet() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSet() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testRemove() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testIsEmpty() {
+		fail("Not yet implemented");
+	}
+
+}

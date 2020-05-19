@@ -1,0 +1,14 @@
+package FinalAssignment;
+
+public class HashTable <K,V>{
+	
+
+
+
+public int hash(K key)
+{
+	return 0;
+}
+
+
+}

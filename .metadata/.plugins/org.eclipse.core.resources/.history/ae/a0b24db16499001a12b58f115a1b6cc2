@@ -1,0 +1,39 @@
+package FinalAssignment;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class MiscUtilsTest {
+	MiscUtils u=new MiscUtils();
+	BinaryTreeNode t;
+	
+
+	@Test
+	void testInsert() {
+	    t=u.insert(t,1);
+	    t=u.insert(t,8);
+	    t=u.insert(t,0);
+	    
+	    
+		assertEquals(8,t.right.element);
+		assertEquals(0,t.left.element);
+		
+	}
+/*
+	@Test
+	void testSumRange() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testIsValidBST() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testNextSmallerNumber() {
+		fail("Not yet implemented");
+	}
+*/
+}

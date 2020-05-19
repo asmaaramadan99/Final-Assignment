@@ -1,0 +1,74 @@
+package FinalAssignment;
+
+public class MiscUtils implements IMiscUtils {
+	
+	
+	public void traverse(BinaryTreeNode root)
+	{
+		if(root==null)
+	     	return;
+		traverse(root.left);
+		System.out.println(root.element);
+		traverse(root.right);	
+	}
+	
+	
+
+	@Override
+	public BinaryTreeNode insert(BinaryTreeNode root, int element) {
+		// TODO Auto-generated method stub
+		
+		if(root==null)
+		{
+		    root=new BinaryTreeNode(element);
+		    
+		}
+		else if(element<(int)root.element)
+		{
+			root.left=insert(root.left,element);
+		}
+		else if(element>(int)root.element)
+		{
+			root.right=insert(root.right,element);
+		}
+		return root;
+	}
+	
+	public BinaryTreeNode search(BinaryTreeNode root,int key)
+	{
+		if((int)root.element==key)
+			return root;
+		else if(key<(int)root.element)
+			return search(root.left,key);
+		else if(key>(int)root.element)
+			return search(root.right,key);
+			return null;
+	
+		
+	}
+
+	@Override
+	public int sumRange(BinaryTreeNode root, int low, int high) {
+		// TODO Auto-generated method stub
+		boolean found=false;
+		if(root==null) return 0;
+		if((int)root.element>low && (int)root.element<high) {
+		return(int) root.element;
+		}
+		return sumRange(root.left,(int)root.element,high)+sumRange(root.right,(int)root.element,high);
+		
+	}
+
+	@Override
+	public boolean isValidBST(BinaryTreeNode root) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int[] nextSmallerNumber(int[] array) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

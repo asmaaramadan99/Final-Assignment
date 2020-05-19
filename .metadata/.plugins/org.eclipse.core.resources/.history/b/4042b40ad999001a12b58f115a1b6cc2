@@ -1,0 +1,54 @@
+package FinalAssignment;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class HashTableDictionaryTest {
+	
+	 int[] arr = new int []{112,112,188, 1513, 931 ,141, 346 ,553 ,513 ,88 ,301 , 189};
+	 HashTableDictionary<Integer,String> t=new  HashTableDictionary <Integer,String>(1000);
+	
+		
+
+		@Test
+		void testSet() {
+			assertNull(t.set(112,"asmaa"));
+			assertNull(t.set(1885,"hi"));
+			assertNull(t.set(1513,"bye"));
+			assertNull(t.set(513,"cat"));
+			assertNull(t.set(141,"meow"));
+			assertNull(t.set(88,"hello"));
+			assertNull(t.set(300,"test"));
+			assertNull(t.set(1234,"goodbye"));
+			assertNull(t.set(1200,"s"));
+			assertNull(t.set(200,"xy"));
+			assertEquals("asmaa",t.set(112,"hi"));
+			assertEquals("bye",t.set(1513,"asmaa"));
+			assertEquals("xy",t.set(200,"no"));
+			assertEquals("cat",t.set(513,"yes"));
+			
+			
+			
+			
+			
+		}
+		/*
+		@Test
+		void testGet() {
+			fail("Not yet implemented");
+		}
+
+	@Test
+	void testIsEmpty() {
+		fail("Not yet implemented");
+	}
+
+
+
+	@Test
+	void testRemove() {
+		fail("Not yet implemented");
+	}
+*/
+}
